@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pinball Revival</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <header class="title-block">
+      <h1>PINBALL <span class="accent">REVIVAL</span></h1>
+      <p class="tagline">One table. One mechanic. Three balls. Chase the glow.</p>
+    </header>
+
+    <main class="table-area">
+      <section class="board-panel">
+        <canvas id="board" width="420" height="640" aria-label="Pinball table"></canvas>
+
+        <div id="overlay" class="overlay" hidden>
+          <div class="overlay-card">
+            <h2 id="overlayTitle">Ball Drained</h2>
+            <p id="overlayMessage"></p>
+            <div id="startBlock" hidden>
+              <button id="startButton" type="button">Launch First Ball</button>
+            </div>
+            <form id="saveForm" hidden>
+              <label for="playerName">Enter your initials / name</label>
+              <input id="playerName" name="playerName" type="text" maxlength="24" autocomplete="off" placeholder="ACE" required />
+              <button id="saveButton" type="submit">Save Score</button>
+              <p id="saveStatus" class="save-status" role="status"></p>
+            </form>
+            <button id="restartButton" type="button" hidden>Play Again</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <div class="stat-block">
+          <div class="stat">
+            <span class="stat-label">Score</span>
+            <span class="stat-value" id="scoreValue">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Balls Left</span>
+            <span class="stat-value" id="ballsValue">3</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Bumper Hits</span>
+            <span class="stat-value" id="hitsValue">0</span>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h2>Controls</h2>
+          <ul>
+            <li><kbd>&larr;</kbd> / <kbd>Z</kbd> &mdash; Left flipper</li>
+            <li><kbd>&rarr;</kbd> / <kbd>/</kbd> &mdash; Right flipper</li>
+            <li><kbd>Hold Space</kbd> then release &mdash; Launch ball from the chute</li>
+            <li><kbd>Enter</kbd> &mdash; Start / confirm on overlay</li>
+          </ul>
+          <h2>How scoring works</h2>
+          <p>
+            Every bumper your ball strikes adds points, and each bumper gets hotter
+            (worth more) the faster the ball was moving on impact. Keep a rally alive with
+            your flippers to chain hits before the ball drains. You get three balls per
+            round; your final score is the total earned across all three. A clean game
+            over submits straight to the high-score table below.
+          </p>
+        </div>
+
+        <div class="highscores">
+          <h2>High Scores</h2>
+          <ol id="scoreList" class="score-list">
+            <li class="score-empty">Loading&hellip;</li>
+          </ol>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

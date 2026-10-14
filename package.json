@@ -1,0 +1,13 @@
+{
+  "name": "pinball-revival",
+  "version": "1.0.0",
+  "description": "Pinball Revival - a compact browser pinball game with a persistent high-score table",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
